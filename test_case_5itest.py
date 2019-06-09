@@ -6,6 +6,7 @@ from BeautifulReport import BeautifulReport
 
 class TestCase_5itest(unittest.TestCase):
     def setUp(self):
+        print('开始5itest测试套件运行')
         self.driver = webdriver.Chrome(executable_path='chromedriver')
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
@@ -16,6 +17,7 @@ class TestCase_5itest(unittest.TestCase):
         self.driver.find_element_by_id('register-btn').click()
         self.assertTrue(EC.title_contains('注册'))
     def tearDown(self):
+        print('结束5itest测试套件运行')
         self.driver.quit()
 
 if __name__ == '__main__':
