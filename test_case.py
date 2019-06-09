@@ -2,7 +2,7 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
-import HTMLTestReportCN
+from BeautifulReport import BeautifulReport
 
 class TestCase_5itest(unittest.TestCase):
     def setUp(self):
@@ -19,7 +19,9 @@ class TestCase_5itest(unittest.TestCase):
         self.driver.quit()
 
 if __name__ == '__main__':
-    test_suite  = unittest.TestSuite()
-    test_suite .addTest(TestCase_5itest('test_login'))
-    unittest.TextTestRunner().run(test_suite)
-    
+    # test_suite  = unittest.TestSuite()
+    # test_suite .addTest(TestCase_5itest('test_login'))
+    # unittest.TextTestRunner().run(test_suite)
+    test_suite = unittest.defaultTestLoader.discover('.',pattern='test_*.py')
+    result = BeautifulReport(test_suite)
+    result.report(filename='测试报告', description='第一次生成测试报告', log_path='report')
