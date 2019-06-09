@@ -1,15 +1,12 @@
 #coding=UTF-8
 import unittest
-from time import sleep
-
-
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 import HTMLTestReportCN
 
 class TestCase_5itest(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome(executable_path='chromedriver')
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
         self.driver.get('http://www.5itest.cn/register')
@@ -22,6 +19,7 @@ class TestCase_5itest(unittest.TestCase):
         self.driver.quit()
 
 if __name__ == '__main__':
-    suite = unittest.TestSuite()
-    suite.addTest(TestCase_5itest('test_login'))
-    suite.run()
+    test_suite  = unittest.TestSuite()
+    test_suite .addTest(TestCase_5itest('test_login'))
+    unittest.TextTestRunner().run(test_suite)
+    
