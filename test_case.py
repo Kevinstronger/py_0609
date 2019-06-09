@@ -2,7 +2,7 @@
 import unittest
 from time import sleep
 
-import fp as fp
+
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 import HTMLTestReportCN
